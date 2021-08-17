@@ -1,0 +1,14 @@
+<div class="container">
+    <h1 classt="text-center">洋服管理アプリ</h1>
+    <div>
+    <% @articles.each do |article| %>
+        <%= link_to article do %>
+            <div class="col-md-3">
+                <p><%= article.cloth_name %></p>
+                <%= article.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+            </div>
+        <% end %>
+    <% end %>
+    </div>
+    <%= link_to '新規作成', new_article_path %>
+</div>

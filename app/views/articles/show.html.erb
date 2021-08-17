@@ -1,0 +1,12 @@
+<div class="container">
+  <h1 classt="text-center"><%= @articles.cloth_name %></h1>
+  <div>
+    <div class="col-md-3">
+      <p></p>
+      <%= @articles.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
+    </div>
+  </div>
+  <%= link_to '編集', edit_article_path(@articles) %>
+  <%= link_to '削除', article_path(@articles), method: :delete, data: {confirm: '削除してもよろしいですか？'}%>
+</div>
+
