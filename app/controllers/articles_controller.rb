@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
   end
 
   def show
+    @articles = Article.find(params[:id])
   end
 
   def new
@@ -17,10 +18,11 @@ class ArticlesController < ApplicationController
   end
 
   def edit
+    @articles = Article.find(params[:id])
   end
 
   def create
-    @articles = Article.new(article_params)
+    @articles = Article.create(article_params)
     if @articles.save
       redirect_to @articles, notice: '作成できました'
     else
@@ -29,6 +31,8 @@ class ArticlesController < ApplicationController
   end
 
   def update
+    @articles = Article.find(params[:id])
+    @articles = Article.new(article_params)
     if @articles.update
       redirect_to @articles, notice: '更新できました'
     else
@@ -51,7 +55,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:cloth_name, :cloth_price)
+    params.require(:article).permit(:cloth_name, :cloth_price, :image)
   end
 
 end

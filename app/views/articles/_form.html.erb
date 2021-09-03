@@ -1,4 +1,7 @@
 <%= form_with(model: articles, local: true, url: "/articles", authenticity_token: false) do |f| %>
+  <div>
+    <%= f.file_field :image %>
+  </div>
   <p>商品名</p>
   <p><%= f.text_field :cloth_name %></p>
   <p>価格</p>

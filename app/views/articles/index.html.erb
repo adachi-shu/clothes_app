@@ -4,6 +4,11 @@
     <% @articles.each do |article| %>
         <%= link_to article do %>
             <div class="col-md-3">
+                <% if article.image.attached? %>
+                    <div>
+                        <%= image_tag article.image %>
+                    </div>
+                 <% end %>
                 <p><%= article.cloth_name %></p>
                 <%= article.created_at.strftime('%Y/%m/%d %H:%M:%S') %>
             </div>
