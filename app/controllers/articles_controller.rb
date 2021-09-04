@@ -7,6 +7,7 @@ class ArticlesController < ApplicationController
 
   def index
     @articles = Article.order(created_at: :desc)
+    # flash[:notice] = "ログイン済ユーザーのみ記事の詳細を確認できます" unless user_signed_in?
   end
 
   def show
