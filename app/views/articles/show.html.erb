@@ -9,6 +9,7 @@
     </div>
   </div>
   <%= link_to '編集', edit_article_path(@articles) %>
-  <%= link_to '削除', article_path(@articles), method: :delete, data: {confirm: '削除してもよろしいですか？'}%>
+  <%# link_to '削除', article_path(@articles), method: :delete, data: {confirm: '削除してもよろしいですか？'}%>
+  <%= link_to '削除', destroy_article_path(@articles) %>
 </div>
 

@@ -1,0 +1,12 @@
+<div class="container">
+  <h1 classt="text-center">捨てる</h1>
+  <div>
+    <%= form_with(model: articles, local: true, url: "/articles", authenticity_token: false) do |f| %>
+      <p>捨てる理由</p>
+      <p><%= f.select :reason, [["汚れ","汚れ"],["劣化","劣化"]] %></p>
+      <p>使用回数</p>
+      <p><%= f.select :category, [["数回","数回"],["たくさん","たくさん"]] %></p>
+      <%= f.submit '捨てる', name: nil %>
+    <% end %>
+  </div>
+</div>

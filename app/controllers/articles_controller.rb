@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :find_article, only: [:show, :edit, :update, :destroy]
+  before_action :find_article, only: [:show, :edit, :update, :destroy, :delete]
 
   #authenticity_tokenのerror回避のため
   # protect_from_forgery
@@ -47,6 +47,9 @@ class ArticlesController < ApplicationController
     else
       redirect_to root_path, alert: '削除できませんでした'
     end
+  end
+
+  def delete
   end
 
   private
