@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  get "articles/delete"
+  # ↓これ最強
+  get "articles/:id/delete" => 'articles#delete', as:'articles_delete'
   devise_for :users
   resources :articles
   root "articles#index"

@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :find_article, only: [:show, :edit, :update, :destroy, :delete]
+  before_action :find_article, only: [:show, :edit, :update, :destroy]
 
   #authenticity_tokenのerror回避のため
   # protect_from_forgery
@@ -33,12 +33,7 @@ class ArticlesController < ApplicationController
 
   def update
     @articles = Article.find(params[:id])
-    @articles = Article.new(article_params)
-    if @articles.update
-      redirect_to @articles, notice: '更新できました'
-    else
-      render :edit, alert: '更新できませんでした'
-    end
+    @articles = Article.update(article_params)
   end
 
   def destroy
@@ -50,6 +45,7 @@ class ArticlesController < ApplicationController
   end
 
   def delete
+    find_article
   end
 
   private
@@ -59,7 +55,11 @@ class ArticlesController < ApplicationController
   end
 
   def article_params
-    params.require(:article).permit(:cloth_name, :cloth_price, :image)
+    params.require(:article).permit(:cloth_name, :cloth_price, :image, :category, :reason, :owned, :times)
   end
+
+  # def delete_params
+  #   params.permit(:reason, :times)
+  # end
 
 end
